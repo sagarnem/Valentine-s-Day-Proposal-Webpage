@@ -47,9 +47,9 @@ export default function LoveLetterModal({
       />
 
       {/* Letter */}
-      <div className="letter-paper relative z-10 max-w-lg w-full rounded-2xl p-8 md:p-10 animate-modal-enter">
+      <div className="letter-paper relative z-10 max-w-lg w-full rounded-2xl p-8 md:p-10 animate-modal-enter h-3/4 overflow-scroll">
         {/* Decorative ribbon */}
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 text-4xl">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 text-4xl z-50">
           🎀
         </div>
 
