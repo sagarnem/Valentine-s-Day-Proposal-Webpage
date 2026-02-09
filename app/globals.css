@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  @keyframes floatHeart {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  25% {
+    transform: translateY(-25vh) translateX(-15px) scale(1.05);
+  }
+
+  50% {
+    transform: translateY(-50vh) translateX(15px) scale(1.1);
+  }
+
+  75% {
+    transform: translateY(-75vh) translateX(-10px) scale(1.05);
+  }
+
+  100% {
+    transform: translateY(-120vh) translateX(0) scale(1.15);
+    opacity: 0;
+  }
+}
+
+.animate-float-heart {
+  animation-name: floatHeart;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 8px rgb(244 63 94 / 0.4));
+    }
+    50% {
+      filter: drop-shadow(0 0 20px rgb(244 63 94 / 0.7));
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 1.5s ease-in-out infinite;
+  }
+
+  @keyframes modal-enter {
+    0% {
+      transform: scale(0.7) translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-modal-enter {
+    animation: modal-enter 0.4s ease-out;
+  }
+
+  @keyframes bounce-soft {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .animate-bounce-soft {
+    animation: bounce-soft 2s ease-in-out infinite;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 340 80% 95%;
+    --foreground: 340 40% 25%;
+    --card: 340 60% 97%;
+    --card-foreground: 340 40% 25%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 40% 25%;
+    --primary: 340 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 340 50% 90%;
+    --secondary-foreground: 340 40% 30%;
+    --muted: 340 30% 92%;
+    --muted-foreground: 340 20% 50%;
+    --accent: 350 80% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 340 40% 88%;
+    --input: 340 40% 88%;
+    --ring: 340 70% 55%;
+    --radius: 1rem;
+    --love-pink: 340 80% 75%;
+    --love-rose: 350 75% 60%;
+    --love-blush: 330 60% 90%;
+    --love-cream: 20 60% 97%;
+    --love-deep: 340 60% 40%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 340 50% 20%;
+    --foreground: 340 20% 95%;
+    --card: 340 50% 25%;
+    --card-foreground: 340 20% 95%;
+    --popover: 340 50% 25%;
+    --popover-foreground: 340 20% 95%;
+    --primary: 340 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 340 40% 35%;
+    --secondary-foreground: 340 20% 95%;
+    --muted: 340 30% 35%;
+    --muted-foreground: 340 20% 60%;
+    --accent: 350 80% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 340 40% 35%;
+    --input: 340 40% 35%;
+    --ring: 340 70% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer components {
+  .letter-paper {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--love-cream)) 0%,
+      hsl(var(--popover)) 100%
+    );
+    box-shadow:
+      0 20px 60px -15px hsl(var(--love-rose) / 0.3),
+      0 0 0 1px hsl(var(--love-pink) / 0.15),
+      inset 0 1px 0 hsl(0 0% 100% / 0.6);
+  }
+
+  .btn-yes {
+    @apply rounded-full px-10 py-4 text-xl font-bold tracking-wide;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 8px 30px -6px hsl(var(--primary) / 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .btn-yes:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 40px -6px hsl(var(--primary) / 0.6);
+  }
+
+  .btn-no {
+    @apply rounded-full px-10 py-4 text-xl font-bold tracking-wide relative;
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    border: 2px solid hsl(var(--border));
+    transition: left 0.3s ease, top 0.3s ease;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
